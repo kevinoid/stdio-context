@@ -1,25 +1,28 @@
 {
-  "name": "@kevinoid/project-template",
+  "name": "stdio-context",
   "version": "0.1.0",
-  "description": "A Node.js/npm project template with codecov, coveralls, ESLint, github_changelog_generator, istanbul, JSDoc, and mocha.",
+  "description": "Replace stdin, stdout, and/or stderr, including console methods, with arbitrary streams for capture, redirection, testing, or other purposes.",
   "keywords": [
-    "project-template",
-    "template"
+    "capture",
+    "console",
+    "hook",
+    "intercept",
+    "process",
+    "stderr",
+    "stdin",
+    "stdio",
+    "stdout"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/kevinoid/node-project-template",
-  "bugs": "https://github.com/kevinoid/node-project-template/issues",
+  "homepage": "https://github.com/kevinoid/stdio-context",
+  "bugs": "https://github.com/kevinoid/stdio-context/issues",
   "author": "Kevin Locke <kevin@kevinlocke.name>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kevinoid/node-project-template.git"
+    "url": "https://github.com/kevinoid/stdio-context.git"
   },
   "main": "index.js",
-  "bin": {
-    "index": "bin/index.js"
-  },
   "files": [
-    "bin",
     "index.js",
     "lib"
   ],
@@ -27,13 +30,12 @@
   "scripts": {
     "doc": "npm run doc-js && npm run doc-spec",
     "doc-js": "rimraf doc/api && jsdoc -c jsdoc.conf.json .",
-    "doc-spec": "rimraf doc/spec && mocha --reporter doc --recursive test | cat doc-src/spec/header.xhtml - doc-src/spec/footer.xhtml >> doc/spec/index.xhtml",
+    "doc-spec": "rimraf doc/spec && mkdir doc/spec && mocha --reporter doc --recursive test | cat doc-src/spec/header.xhtml - doc-src/spec/footer.xhtml >> doc/spec/index.xhtml",
     "lint": "npm run lint-js && npm run lint-doc",
     "lint-doc": "jsdoc -c jsdoc-lint.conf.json . && echo JSDoc passed.",
     "lint-js": "eslint . && echo ESLint passed.",
     "postversion": "rimraf doc && git clone -b gh-pages -l -q . doc && npm run doc && git -C doc add . && git -C doc commit -n -m \"Docs for version $npm_package_version\" && git -C doc push && git push --follow-tags origin master gh-pages && echo Remember to update GitHub Releases from CHANGELOG.md && echo until skywinder/github-changelog-generator#56 is fixed.",
     "preversion": "git-branch-is master && travis-status -b -c -qwx && depcheck && david",
-    "start": "supervisor --quiet --no-restart-on exit --extensions js,json --ignore test --poll-interval 2000 server.js",
     "test": "npm run lint && npm run test-unit",
     "test-cov": "npm run lint && npm run test-unit-cov",
     "test-unit": "mocha --recursive test",
@@ -42,8 +44,11 @@
     "version": "github_changelog_generator -t \"$npm_config_gcg_github_token\" && echo Please edit CHANGELOG.md as desired, then exit && $npm_config_shell && git commit -m \"Update CHANGELOG.md for $npm_package_version\" CHANGELOG.md",
     "version-deps": "npm install david depcheck git-branch-is travis-status"
   },
-  "dependencies": {},
+  "dependencies": {
+    "debug": "^2.2.0"
+  },
   "devDependencies": {
+    "bluebird": ">=2.0.0",
     "codecov": "^1.0.1",
     "coveralls": "^2.11.6",
     "eslint": "^2.2.0",
