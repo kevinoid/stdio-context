@@ -62,11 +62,12 @@ wrappedStdioStuff();
 
 ## Installation
 
-[This package](https://www.npmjs.com/package/browserify) can be installed
-using [npm](https://www.npmjs.com/), either globally or locally, by running:
+[This package](https://www.npmjs.com/package/stdio-context) can be
+installed using [npm](https://www.npmjs.com/), either globally or locally, by
+running:
 
 ```sh
-npm install git-branch-is
+npm install stdio-context
 ```
 
 ## Recipes
@@ -177,6 +178,16 @@ packages:
   provides convenience functions for writing to file or socket.
 * [stdout-monkey](https://github.com/stringparser/stdout-monkey) - Replaces or
   observes the `.write` method of `stdout`.
+
+## Contributing
+
+Contributions are welcome and very much appreciated!  Please add tests to
+cover any changes and ensure `npm test` passes.
+
+If the desired change is large, complex, backwards-incompatible, can have
+significantly differing implementations, or may not be in scope for this
+project, opening an issue before writing the code can avoid frustration and
+save a lot of time and effort.
 
 ## License
 
