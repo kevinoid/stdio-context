@@ -1,6 +1,6 @@
 {
   "name": "stdio-context",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Replace stdin, stdout, and/or stderr, including console methods, with arbitrary streams for capture, redirection, testing, or other purposes.",
   "keywords": [
     "capture",
