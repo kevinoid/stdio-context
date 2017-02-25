@@ -512,11 +512,11 @@ function doStdio2Stuff() {
   // more to protect against increases in future versions.
   var numTestWrites = 64;
   var testContent = new Buffer(1024);
-  for (var i = 0; i &lt; numTestWrites; ++i) {
+  for (var i = 0; i &lt; numTestWrites; i += 1) {
     assert.strictEqual(process.stdout.write(testContent), true);
   }
   assert.strictEqual(myStdout1.read(), null);
-  for (var j = 0; j &lt; numTestWrites; ++j) {
+  for (var j = 0; j &lt; numTestWrites; j += 1) {
     assert.strictEqual(process.stderr.write(testContent), true);
   }
   assert.strictEqual(myStderr1.read(), null);
