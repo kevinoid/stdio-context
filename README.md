@@ -1,6 +1,8 @@
 StdioContext
 ============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kevinoid/stdio-context.svg)](https://greenkeeper.io/)
+
 [![Build Status: Linux](https://img.shields.io/travis/kevinoid/stdio-context/master.svg?style=flat&label=build+on+linux)](https://travis-ci.org/kevinoid/stdio-context)
 [![Build Status: Windows](https://img.shields.io/appveyor/ci/kevinoid/stdio-context/master.svg?style=flat&label=build+on+windows)](https://ci.appveyor.com/project/kevinoid/stdio-context)
 [![Coverage](https://img.shields.io/codecov/c/github/kevinoid/stdio-context.svg?style=flat)](https://codecov.io/github/kevinoid/stdio-context?branch=master)
