@@ -1,7 +1,8 @@
 StdioContext
 ============
 
-[![Build status](https://img.shields.io/travis/kevinoid/stdio-context.svg?style=flat)](https://travis-ci.org/kevinoid/stdio-context)
+[![Build Status: Linux](https://img.shields.io/travis/kevinoid/stdio-context/master.svg?style=flat&label=build+on+linux)](https://travis-ci.org/kevinoid/stdio-context)
+[![Build Status: Windows](https://img.shields.io/appveyor/ci/kevinoid/stdio-context/master.svg?style=flat&label=build+on+windows)](https://ci.appveyor.com/project/kevinoid/stdio-context)
 [![Coverage](https://img.shields.io/codecov/c/github/kevinoid/stdio-context.svg?style=flat)](https://codecov.io/github/kevinoid/stdio-context?branch=master)
 [![Dependency Status](https://img.shields.io/david/kevinoid/stdio-context.svg?style=flat)](https://david-dm.org/kevinoid/stdio-context)
 [![Supported Node Version](https://img.shields.io/node/v/stdio-context.svg?style=flat)](https://www.npmjs.com/package/stdio-context)
@@ -154,7 +155,7 @@ wrappedStdioStuff(callback).then(onThen);
 ```
 
 More examples can be found in the [test
-specifications](https://kevinoid.github.io/stdio-context/specs).
+specifications](https://kevinoid.github.io/stdio-context/spec).
 
 ## API Docs
 
