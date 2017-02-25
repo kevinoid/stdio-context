@@ -193,7 +193,7 @@ function StdioContext(options) {  // eslint-disable-line consistent-return
     throw new TypeError('options must be an object');
   }
 
-  var opts = this._options = {};
+  var opts = {};
   Object.keys(options).forEach(function(prop) {
     // Accept child_process stdio argument type
     var destProp =
@@ -203,6 +203,7 @@ function StdioContext(options) {  // eslint-disable-line consistent-return
       prop;
     opts[destProp] = options[prop];
   });
+  this._options = opts;
 
   // Note:  .read() was not part of Readable in Streams v1
   if (opts.stdin && typeof opts.stdin.pipe !== 'function') {
@@ -216,7 +217,8 @@ function StdioContext(options) {  // eslint-disable-line consistent-return
   }
 
   // Name for debug logging
-  this._name = (++instanceCount).toString(16);
+  instanceCount += 1;
+  this._name = instanceCount.toString(16);
 }
 
 /** Enters this stdio context and starts using the stdio streams it defines.
@@ -292,7 +294,7 @@ StdioContext.prototype.exit = function exit() {
   var contextInd = contextStack.length - 1;
   while (contextInd >= 0 &&
       !stateForThisContext(contextStack[contextInd])) {
-    --contextInd;
+    contextInd -= 1;
   }
   if (contextInd < 0) {
     debug('#exit() called on a context which has already exited completely.');
@@ -338,7 +340,7 @@ StdioContext.prototype.exec = function exec(func) {
   }
 
   var args = new Array(arguments.length - 1);
-  for (var i = 1; i < arguments.length; ++i) {
+  for (var i = 1; i < arguments.length; i += 1) {
     args[i - 1] = arguments[i];
   }
   return wrapped.apply(null, args);
@@ -364,7 +366,7 @@ StdioContext.prototype.execSync = function execSync(func) {
   }
 
   var args = new Array(arguments.length - 1);
-  for (var i = 1; i < arguments.length; ++i) {
+  for (var i = 1; i < arguments.length; i += 1) {
     args[i - 1] = arguments[i];
   }
   return wrapped.apply(null, args);

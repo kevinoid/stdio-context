@@ -2,6 +2,7 @@
  * @copyright Copyright 2016 Kevin Locke <kevin@kevinlocke.name>
  * @license MIT
  */
+
 'use strict';
 
 // We test the console a lot.  Allow access without warning.
@@ -654,12 +655,12 @@ describe('StdioContext', function() {
         var numTestWrites = 64;
         var testContent = new Buffer(1024);
 
-        for (var i = 0; i < numTestWrites; ++i) {
+        for (var i = 0; i < numTestWrites; i += 1) {
           assert.strictEqual(process.stdout.write(testContent), true);
         }
         assert.strictEqual(myStdout1.read(), null);
 
-        for (var j = 0; j < numTestWrites; ++j) {
+        for (var j = 0; j < numTestWrites; j += 1) {
           assert.strictEqual(process.stderr.write(testContent), true);
         }
         assert.strictEqual(myStderr1.read(), null);
