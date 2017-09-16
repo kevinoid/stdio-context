@@ -131,7 +131,7 @@ function restoreState(contextState) {
   var beforeEnter = contextState.beforeEnter;
 
   debug('restoring state from StdioContext %s', context._name,
-      debugInspect(opts, {depth: 0}));
+    debugInspect(opts, {depth: 0}));
 
   function restoreProp(obj, prop) {
     if (beforeEnter[prop]) {
@@ -186,7 +186,7 @@ function restoreState(contextState) {
  * properties or an <code>Array</code> of <code>[stdin, stdout, stderr]</code>.
  * @see StdioContextOptions
  */
-function StdioContext(options) {  // eslint-disable-line consistent-return
+function StdioContext(options) { // eslint-disable-line consistent-return
   if (!(this instanceof StdioContext)) { return new StdioContext(options); }
 
   if (!options || typeof options !== 'object') {
@@ -198,9 +198,9 @@ function StdioContext(options) {  // eslint-disable-line consistent-return
     // Accept child_process stdio argument type
     var destProp =
       prop === '0' ? 'stdin' :
-      prop === '1' ? 'stdout' :
-      prop === '2' ? 'stderr' :
-      prop;
+        prop === '1' ? 'stdout' :
+          prop === '2' ? 'stderr' :
+            prop;
     opts[destProp] = options[prop];
   });
   this._options = opts;
@@ -259,7 +259,7 @@ StdioContext.prototype.enter = function enter() {
   };
 
   if (stdout || stderr) {
-    var Console = console.Console;    // eslint-disable-line no-console
+    var Console = console.Console; // eslint-disable-line no-console
     var newConsole = new Console(process.stdout, process.stderr);
     // Constructor doesn't add the Console property.
     // Add it for consistent behavior and nested contexts
@@ -436,8 +436,8 @@ StdioContext.prototype.wrap = function wrap(func) {
     if (result && typeof result.then === 'function') {
       // finally: https://github.com/domenic/promises-unwrapping/issues/18
       return result.then(
-          function(value) { exitStdioContext(); return value; },
-          function(reason) { exitStdioContext(); throw reason; }
+        function(value) { exitStdioContext(); return value; },
+        function(reason) { exitStdioContext(); throw reason; }
       );
     }
 

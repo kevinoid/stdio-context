@@ -13,7 +13,7 @@ var StdioContext = require('..');
 var assert = require('assert');
 var stream = require('stream');
 
-var Promise = global.Promise || BBPromise;  // eslint-disable-line no-shadow
+var Promise = global.Promise || BBPromise; // eslint-disable-line no-shadow
 var deepEqual = assert.deepStrictEqual || assert.deepEqual;
 
 /* Developer Note:
@@ -167,8 +167,8 @@ describe('StdioContext', function() {
       var wrappedStdioStuff = myStdioContext.wrap(doAsyncStdioStuff);
 
       assert.throws(
-          wrappedStdioStuff,
-          function(err) { return err === testErr; }
+        wrappedStdioStuff,
+        function(err) { return err === testErr; }
       );
 
       assert.strictEqual(console, origConsole);
@@ -653,7 +653,8 @@ describe('StdioContext', function() {
         // and 16 * 1024 in bytes.  PassThrough has 2 buffers.  Double it once
         // more to protect against increases in future versions.
         var numTestWrites = 64;
-        var testContent = new Buffer(1024);
+        // eslint-disable-next-line no-buffer-constructor
+        var testContent = Buffer.alloc ? Buffer.alloc(1024) : new Buffer(1024);
 
         for (var i = 0; i < numTestWrites; i += 1) {
           assert.strictEqual(process.stdout.write(testContent), true);
@@ -964,8 +965,8 @@ describe('StdioContext', function() {
       var wrappedStdioStuff = myStdioContext.wrapSync(doStdioStuff);
 
       assert.throws(
-          wrappedStdioStuff,
-          function(err) { return err === testErr; }
+        wrappedStdioStuff,
+        function(err) { return err === testErr; }
       );
 
       assert.strictEqual(process.stdin, origStdin);
