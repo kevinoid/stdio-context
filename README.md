@@ -10,6 +10,14 @@ StdioContext
 
 A Node.js library to replace `stdin`, `stdout`, and/or `stderr`, including `console` methods, with arbitrary streams in a controlled way for capture, redirection, testing, or other purposes.
 
+## !!! Unmaintained Project !!!
+
+This project is currently outdated and unmaintained.  Depending on this
+project is not recommended.  If you have an interest in maintaining this
+project, or a compelling use case to justify continued maintenance by the
+original maintainer, feel free to [open an
+issue](https://github.com/kevinoid/stdio-context/issues).
+
 ## Introductory Example
 
 ```js
